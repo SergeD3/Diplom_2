@@ -1,5 +1,7 @@
 
 COMMON_HEADERS = {'Content-Type': 'application/json'}
+AUTH_HEADER = {'Authorization': ''}
+
 BASE_URL = "https://stellarburgers.nomoreparties.site/api/"
 
 USER_REGISTRATION_PATH = "auth/register"
@@ -16,4 +18,3 @@ USER_BODY = {
     "password": "{password}",
     "name": "{username}"
 }
-

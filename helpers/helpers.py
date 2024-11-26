@@ -27,5 +27,11 @@ def get_random_user_credentials():
     return creds_copy
 
 
+def get_random_email():
+    email = fake.email(domain='yandex.ru')
+
+    return email
+
+
 if __name__ == '__main__':
-    print(get_random_user_credentials())
+    print(get_random_email())

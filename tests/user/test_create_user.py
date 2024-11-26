@@ -19,8 +19,8 @@ class TestUser(UserMethods):
         expected_message = "User already exists"
         user_credentials = helpers.get_random_user_credentials()
 
-        self.post_auth_user(user_credentials)
-        response = self.post_auth_user(user_credentials)
+        self.post_create_user(user_credentials)
+        response = self.post_create_user(user_credentials)
 
         assert response.status_code == 403 and response.json()['message'] == expected_message
 
@@ -35,7 +35,7 @@ class TestUser(UserMethods):
         user_credentials = helpers.get_random_user_credentials()
         user_credentials.update(field)
 
-        response = self.post_auth_user(user_credentials)
+        response = self.post_create_user(user_credentials)
 
         assert response.status_code == 403 and response.json()['message'] == expected_message
 
