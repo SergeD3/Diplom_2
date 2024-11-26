@@ -24,13 +24,15 @@ class BaseMethods:
         return self.check_response(response)
 
     @allure.step('Отправляю post-запрос на указанный эндпоинт')
-    def post_method(self, url, req_path, req_data=None, req_json=None):
+    def post_method(self, url, req_path, token=None, req_data=None, req_json=None):
         body_data = json.dumps(req_data)
         body_json = json.dumps(req_json)
+        req_headers = data.COMMON_HEADERS if token is None else self.format_authorization_header(token)
 
+        print(f"Отправлен запрос: {url}{req_path} : {req_headers=} : {body_data=}")
         response = requests.post(
             url=f"{url}{req_path}",
-            headers=data.COMMON_HEADERS,
+            headers=req_headers,
             data=body_data,
             json=body_json
         )
