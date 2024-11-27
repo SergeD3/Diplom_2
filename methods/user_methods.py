@@ -6,7 +6,7 @@ from methods.base_methods import BaseMethods
 
 class UserMethods(BaseMethods):
 
-    @allure.title("Отправляю POST-запрос на создание пользователя")
+    @allure.step("Отправляю POST-запрос на создание пользователя")
     def post_create_user(self, req_body):
         response = self.post_method(
             url=data.BASE_URL,
@@ -16,7 +16,7 @@ class UserMethods(BaseMethods):
 
         return response
 
-    @allure.title("Отправляю POST-запрос на авторизацию пользователя")
+    @allure.step("Отправляю POST-запрос на авторизацию пользователя")
     def post_auth_user(self, creds):
         response = self.post_method(
             url=data.BASE_URL,
@@ -26,7 +26,7 @@ class UserMethods(BaseMethods):
 
         return response
 
-    @allure.title("Отправляю GET-запрос с токеном для получения информации о пользователе")
+    @allure.step("Отправляю GET-запрос с токеном для получения информации о пользователе")
     def get_user_info(self, token):
         response = self.get_method(
             url=data.BASE_URL,
@@ -36,7 +36,7 @@ class UserMethods(BaseMethods):
 
         return response
 
-    @allure.title("Отправляю PATCH-запрос с токеном для изменения информации в пользователе")
+    @allure.step("Отправляю PATCH-запрос с токеном для изменения информации в пользователе")
     def edit_user_info(self, token, req_body):
         response = self.patch_method(
             url=data.BASE_URL,

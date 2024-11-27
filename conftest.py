@@ -45,23 +45,4 @@ def create_user_and_auth(create_unique_user):
         data=created_user_creds
     )
 
-    assert delete_user_response.ok, f"Ошибка: {auth_user_response.status_code} : {auth_user_response.text}"
-
-
-# @pytest.fixture
-# def ingredients():
-#     ing_hashes = []
-#
-#     response = req.get(
-#         url=f"{data.BASE_URL}{data.ING_PATH}",
-#         headers=data.COMMON_HEADERS,
-#         data=''
-#     )
-#
-#     assert response.ok, f"Ошибка: {response.status_code} : {response.text}"
-#
-#     ingredients = response.json()['data'][0]
-#     for key, value in ingredients.items():
-#         if '_id' in key:
-#             ing_hashes.append(value)
-#         return ing_hashes
+    assert delete_user_response.ok, f"Ошибка удаления пользователя: {auth_user_response.status_code} : {auth_user_response.text}"

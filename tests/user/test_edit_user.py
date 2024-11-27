@@ -31,10 +31,7 @@ class TestEditUser(UserMethods):
         new_password = helpers.generate_random_string(10)
         user_creds['password'] = new_password
 
-        edit_response = self.edit_user_info(token=token, req_body=user_creds)
-
-        assert edit_response.ok
-
+        self.edit_user_info(token=token, req_body=user_creds)
         auth_response = self.post_auth_user(user_creds)
 
         assert auth_response.ok and auth_response.json()['accessToken'] != empty_string

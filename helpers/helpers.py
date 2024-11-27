@@ -31,7 +31,3 @@ def get_random_email():
     email = fake.email(domain='yandex.ru')
 
     return email
-
-
-if __name__ == '__main__':
-    print(get_random_email())
