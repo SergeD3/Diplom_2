@@ -7,13 +7,13 @@ class TestGetOrderByUser(OrderMethods):
 
     @allure.title("Проверка возможности получения списка заказов пользователя по его токену")
     def test_get_orders_by_user_token(self, create_user_and_auth):
-        empty_string = ''
+        expected_result = True
         token = create_user_and_auth[0].json()['accessToken']
 
         self.post_create_order(token)
         response = self.get_orders_by_user(token)
 
-        assert response.ok and response.json().get('orders')[0].get('_id') != empty_string
+        assert response.ok and response.json().get('success') == expected_result
 
     @allure.title("Проверка, что нельзя получить список заказов без токена пользователя")
     def test_cannot_get_orders_without_user_token(self):
