@@ -45,4 +45,5 @@ def create_user_and_auth(create_unique_user):
         data=created_user_creds
     )
 
-    assert delete_user_response.ok, f"Ошибка удаления пользователя: {auth_user_response.status_code} : {auth_user_response.text}"
+    assert delete_user_response.ok, \
+        f"Ошибка удаления пользователя: {delete_user_response.status_code} : {delete_user_response.text}"
